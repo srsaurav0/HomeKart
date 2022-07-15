@@ -1,0 +1,185 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            color: #fff;
+            background: #63738a;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-control {
+            height: 40px;
+            box-shadow: none;
+            color: #969fa4;
+        }
+
+            .form-control:focus {
+                border-color: #5cb85c;
+            }
+
+        .form-control, .btn {
+            border-radius: 3px;
+        }
+
+        .signup-form {
+            width: 400px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+            .signup-form h2 {
+                color: #636363;
+                margin: 0 0 15px;
+                position: relative;
+                text-align: center;
+            }
+
+                .signup-form h2:before, .signup-form h2:after {
+                    content: "";
+                    height: 2px;
+                    width: 30%;
+                    background: #d4d4d4;
+                    position: absolute;
+                    top: 50%;
+                    z-index: 2;
+                }
+
+                .signup-form h2:before {
+                    left: 0;
+                }
+
+                .signup-form h2:after {
+                    right: 0;
+                }
+
+            .signup-form .hint-text {
+                color: #999;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .signup-form form {
+                color: #999;
+                border-radius: 3px;
+                margin-bottom: 15px;
+                background: #f2f3f7;
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+            }
+
+            .signup-form .form-group {
+                margin-bottom: 20px;
+            }
+
+            .signup-form input[type="checkbox"] {
+                margin-top: 3px;
+            }
+
+            .signup-form .btn {
+                font-size: 16px;
+                font-weight: bold;
+                min-width: 140px;
+                outline: none !important;
+            }
+
+            .signup-form .row div:first-child {
+                padding-right: 10px;
+            }
+
+            .signup-form .row div:last-child {
+                padding-left: 10px;
+            }
+
+            .signup-form a {
+                color: #fff;
+                text-decoration: underline;
+            }
+
+                .signup-form a:hover {
+                    text-decoration: none;
+                }
+
+            .signup-form form a {
+                color: #5cb85c;
+                text-decoration: none;
+            }
+
+                .signup-form form a:hover {
+                    text-decoration: underline;
+                }
+
+        .hp1 {
+            margin-top: 35px;
+            margin-left: 35px;
+            margin-right: 35px;
+            height: 70px;
+            background-color: #3B3B3B;
+        }
+
+        .cent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<header>
+    <nav class="navbar font navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="font-family: 'Rubik Moonrocks', cursive; font-size:40px" asp-area="" asp-controller="Home" asp-action="Index">HomeKart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light" style="margin-right:1vw" asp-controller="SignIn" asp-action="Index">
+                        Sign In
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light" asp-controller="Register" asp-action="Index">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="hp1 cent animate__animated animate__bounceInDown">
+    <h1 style="color:#E6E6E6;" class="font">Looking for a property to rent?</h1>
+</div>
+
+<div style="margin:35px; display: flex; z-index:-1">
+    <div class="cent animate__animated animate__backInLeft" style="background-color:#7B7B7B; height:200px; width:50%; margin-right:20px;">
+        <a class="font" style="font-size: 60px; color:#E6E6E6" asp-area="" asp-controller="Owner" asp-action="Index">OWNER</a>
+    </div>
+    <div class="cent animate__animated animate__backInRight" style="background-color:#7B7B7B; height:200px; width:50%; margin-left:20px;">
+        <a class="font " style="font-size: 60px; color:#E6E6E6" asp-area="" asp-controller="Renter" asp-action="Index">RENTER</a>
+    </div>
+</div>

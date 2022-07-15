@@ -1,0 +1,43 @@
+﻿@model IEnumerable<OwnerVM>
+
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-dark">Property List:</h2>
+        </div>
+        <div class="col-3">
+        </div>
+        <div class="col-3 text-end">
+            <a asp-controller="Owner" asp-action="AddProperty" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; Add New Property
+            </a>
+        </div>
+
+    </div>
+
+
+    <table class="table table-bordered table-striped mt-3" style="width:100%;">
+        <thead class="" style="background-color:darkgray">
+            <tr>
+                <th class="w-25">Address</th>
+                <th>Area</th>
+                <th style="width:15vw">No. of Rooms</th>
+                <th>Floor No.</th>
+                <th>Rent Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td class="w-25">@obj.Address</td>
+                    <td>@obj.Area</td>
+                    <td style="width:15vw">@obj.No_of_Rooms</td>
+                    <td>@obj.Floor_No</td>
+                    <td>@obj.Rent_Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<RegisterVM>
+
+<style>
+    .hp1 {
+        margin-top: 35px;
+        margin-left: 35px;
+        margin-right: 35px;
+        height: 70px;
+        background-color: #3B3B3B;
+    }
+
+    .cent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .font {
+        font-family: 'Playfair Display', serif;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="font-family: 'Rubik Moonrocks', cursive; font-size:40px" asp-area="" asp-controller="Home" asp-action="Index">HomeKart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link font" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item text-white font mt-1" style="margin-right:1vw; font-size:larger">
+                    Welcome Admin!
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn font btn-outline-light" style="margin-right:1vw" asp-controller="Home" asp-action="Index">
+                        Sign Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container font">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-dark">Admin Logs:</h2>
+        </div>
+        @*<div class="col-3">
+        </div>
+        <div class="col-3 text-end">
+            <a asp-controller="Owner" asp-action="AddProperty" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; Add New Property
+            </a>
+        </div>*@
+
+    </div>
+
+
+    <table class="table table-bordered table-striped mt-3" style="width:100%;">
+        <thead class="" style="background-color:darkgray">
+            <tr>
+                <th class="w-25">Name</th>
+                <th class="w-25">Email</th>
+                <th class="w-25">Password</th>
+                <th class="w-25">Account Creation Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td >@obj.Name</td>
+                    <td>@obj.Email</td>
+                    <td >@obj.Password</td>
+                    <td>@obj.DateTimeCreater</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

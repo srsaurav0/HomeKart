@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .hp1 {
+        margin-top: 35px;
+        margin-left: 35px;
+        margin-right: 35px;
+        height: 70px;
+        background-color: #3B3B3B;
+    }
+
+    .cent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .font {
+        font-family: 'Playfair Display', serif;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="font-family: 'Rubik Moonrocks', cursive; font-size:40px" asp-area="" asp-controller="Home" asp-action="Index">HomeKart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light" style="margin-right:1vw" asp-controller="SignIn" asp-action="Index">
+                        Sign In
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light" asp-controller="Register" asp-action="Index">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+
+<div class="hp1 cent animate__animated animate__bounceInDown">
+    <h1 style="color:#E6E6E6;" class="font">What do we offer?</h1>
+</div>
+
+<div class="container col-12 mt-5 d-flex">
+    <img class="col-6 animate__animated animate__backInLeft" src="~/Images/Image 1.jpg" />
+    <div class="col-6 font animate__animated animate__backInRight" style="padding-left:100px; font-size:30px; padding-top:70px;">
+        <ul>
+            <li>Best apartments </li>
+            <li>Reasonable rate</li>
+            <li>Best collection</li>
+            <li>Easy user interface</li>
+            <li>Trusted sources</li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="hp1 cent">
+    <h1 style="color:#E6E6E6;" class="font">Why us?</h1>
+</div>
+
+<div class="container col-12 mt-5 d-flex">
+    <div class="col-6 font animate__animated animate__backInLeft" style="padding-left:100px; font-size:30px; padding-top:70px;">
+        <ul>
+            <li>Best collection of team </li>
+            <li>Trusted sources</li>
+            <li>Proper inspection</li>
+            <li>Proper documentation</li>
+            <li>Up to date database</li>
+        </ul>
+    </div>
+    <img class="col-6 animate__animated animate__backInRight" src="~/Images/Image 4.jpg" />
+
+</div>

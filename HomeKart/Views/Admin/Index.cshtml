@@ -1,0 +1,181 @@
+﻿@model AdminVM
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		body {
+			color: #fff;
+			background: #63738a;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		.form-control {
+			height: 40px;
+			box-shadow: none;
+			color: #969fa4;
+		}
+
+			.form-control:focus {
+				border-color: #5cb85c;
+			}
+
+		.form-control, .btn {
+			border-radius: 3px;
+		}
+
+		.signup-form {
+			width: 400px;
+			margin: 0 auto;
+			padding: 30px 0;
+		}
+
+			.signup-form h2 {
+				color: #636363;
+				margin: 0 0 15px;
+				position: relative;
+				text-align: center;
+			}
+
+				.signup-form h2:before, .signup-form h2:after {
+					content: "";
+					height: 2px;
+					width: 30%;
+					background: #d4d4d4;
+					position: absolute;
+					top: 50%;
+					z-index: 2;
+				}
+
+				.signup-form h2:before {
+					left: 0;
+				}
+
+				.signup-form h2:after {
+					right: 0;
+				}
+
+			.signup-form .hint-text {
+				color: #999;
+				margin-bottom: 30px;
+				text-align: center;
+			}
+
+			.signup-form form {
+				color: #999;
+				border-radius: 3px;
+				margin-bottom: 15px;
+				background: #f2f3f7;
+				box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+				padding: 30px;
+			}
+
+			.signup-form .form-group {
+				margin-bottom: 20px;
+			}
+
+			.signup-form input[type="checkbox"] {
+				margin-top: 3px;
+			}
+
+			.signup-form .btn {
+				font-size: 16px;
+				font-weight: bold;
+				min-width: 140px;
+				outline: none !important;
+			}
+
+			.signup-form .row div:first-child {
+				padding-right: 10px;
+			}
+
+			.signup-form .row div:last-child {
+				padding-left: 10px;
+			}
+
+			.signup-form a {
+				color: #fff;
+				text-decoration: underline;
+			}
+
+				.signup-form a:hover {
+					text-decoration: none;
+				}
+
+			.signup-form form a {
+				color: #5cb85c;
+				text-decoration: none;
+			}
+
+				.signup-form form a:hover {
+					text-decoration: underline;
+				}
+	</style>
+</head>
+
+<header>
+	<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" style="font-family: 'Rubik Moonrocks', cursive; font-size:40px" asp-area="" asp-controller="Home" asp-action="Index">HomeKart</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+				<ul class="navbar-nav flex-grow-1">
+					<li class="nav-item">
+						<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link btn btn-outline-light" style="margin-right:1vw" asp-controller="SignIn" asp-action="Index">
+						Sign In
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link btn btn-outline-light" asp-controller="Register" asp-action="Index">
+						Register
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<div class="signup-form">
+	<form id="registerForm" asp-action="CheckAdmin" asp-controller="Admin" method="post">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<h2>Admin</h2>
+		<h5 class="text-danger text-center">Restricted</h5>
+		<div class="form-group">
+			<label asp-for="Email"></label>
+			<input asp-for="Email" class="form-control" aria-required="true" />
+			<span asp-validation-for="Email" class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for="Password"></label>
+			<input asp-for="Password" class="form-control" aria-required="true" />
+			<span asp-validation-for="Password" class="text-danger"></span>
+		</div>
+		<div class="form-group text-center">
+			<button id="registerSubmit" type="submit" class="btn btn-dark btn-lg btn-block">Sign In</button>
+		</div>
+	</form>
+	<div class="text-center mt-4">
+		<p style="color:Black">Click <a style="color:blue" asp-action="Index" asp-controller="SignIn">here</a> to sign in as an user.</p>
+	</div>
+	<div class="text-center mt-4">
+		<p style="color:Black">Click <a style="color:blue" asp-action="Index" asp-controller="Register">here</a> to sign up as a new user.</p>
+	</div>''
+</div>
+
+@if(ViewBag.Error == 2)
+{
+	<script>
+		alert("Invalid Email or Password!");
+	</script>
+}
+
