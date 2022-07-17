@@ -74,6 +74,9 @@ namespace HomeKart.Migrations
                     b.Property<int>("Rent_Amount")
                         .HasColumnType("int");
 
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Properties");

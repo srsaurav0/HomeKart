@@ -137,6 +137,11 @@
         a {
             text-decoration: none;
         }
+
+        .navbar-nav a:hover{
+            color:black !important;
+        }
+
     </style>
 </head>
 
@@ -157,12 +162,12 @@
             </div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-light" style="margin-right:1vw" asp-controller="SignIn" asp-action="Index">
+                    <a class="nav-link navhov btn btn-outline-light" style="margin-right:1vw" asp-controller="SignIn" asp-action="Index">
                         Sign In
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-light" asp-controller="Register" asp-action="Index">
+                    <a class="nav-link navhov btn btn-outline-light" asp-controller="Register" asp-action="Index">
                         Register
                     </a>
                 </li>

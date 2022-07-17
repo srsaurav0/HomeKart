@@ -9,9 +9,9 @@
 <div class="container col-12 mt-5 d-flex font mb-3">
     <div class="col-6 ">
         <div class="col-10 bg-light p-5" style="border-radius:25px;">
-            <form method="post">
+            <form method="post" asp-action="UpdateProperty">
                 <div class="">
-                    <h2>Enter property details:</h2>
+                    <h2>Update property details:</h2>
                 </div>
                 <div asp-validation-summary="All"></div>
                 <div class="form-group mt-3">
@@ -48,7 +48,7 @@
                    @*Html.Hidden("userId",(int)TempData["userId"])*@
 
                 <div class="form-group mt-5 text-center">
-                    <button type="submit" class="btn btn-primary col-5">Add</button>
+                    <button type="submit" class="btn btn-primary col-5">Update</button>
                 </div>
                 
             </form>

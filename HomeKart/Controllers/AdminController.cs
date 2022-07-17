@@ -34,7 +34,7 @@ namespace HomeKart.Controllers
             }
             if (IsAdmin == true)
             {
-                return View("../Admin/DataBase");
+                return RedirectToAction("DataBase");
             }
             ViewBag.Error = 2;
             return View("Index", "Admin");
@@ -43,6 +43,7 @@ namespace HomeKart.Controllers
         public IActionResult DataBase()
         {
             IEnumerable<RegisterVM> objUserList = _db.Registers;
+
             return View(objUserList);
         }
     }

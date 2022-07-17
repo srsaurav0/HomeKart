@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HomeKart.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220715155318_PropertyAdded")]
-    partial class PropertyAdded
+    [Migration("20220716165142_tables-updated")]
+    partial class tablesupdated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,14 +31,6 @@ namespace HomeKart.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("AdmEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AdmPass")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -82,6 +74,9 @@ namespace HomeKart.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Rent_Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("userId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

@@ -58,34 +58,42 @@
         <div class="col-6">
             <h2 class="text-dark">Admin Logs:</h2>
         </div>
-        @*<div class="col-3">
-        </div>
-        <div class="col-3 text-end">
-            <a asp-controller="Owner" asp-action="AddProperty" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> &nbsp; Add New Property
-            </a>
-        </div>*@
-
     </div>
 
 
     <table class="table table-bordered table-striped mt-3" style="width:100%;">
         <thead class="" style="background-color:darkgray">
             <tr>
-                <th class="w-25">Name</th>
-                <th class="w-25">Email</th>
-                <th class="w-25">Password</th>
-                <th class="w-25">Account Creation Time</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Creation Time</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var obj in Model)
             {
                 <tr>
-                    <td >@obj.Name</td>
+                    <td>@obj.Name</td>
                     <td>@obj.Email</td>
-                    <td >@obj.Password</td>
+                    <td>@obj.Password</td>
                     <td>@obj.DateTimeCreater</td>
+                    <td class="text-center">
+                        <a asp-action="UpdateProperty" asp-controller="Owner" asp-route-id="@obj.Id">
+                            <div class="btn btn-group mx-1 btn-secondary">
+                                <i class="bi bi-pencil"></i> Update
+                            </div>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="DeleteProperty" asp-controller="Owner" asp-route-id="@obj.Id">
+                            <div class="btn btn-group mx-1 btn-danger">
+                                <i class="bi bi-trash3-fill"></i> Delete
+                            </div>
+                        </a>
+                    </td>
                 </tr>
             }
         </tbody>

@@ -2,6 +2,7 @@
 using HomeKart.Models;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace HomeKart.Controllers
 {
     public class SignInController : Controller
@@ -29,11 +30,13 @@ namespace HomeKart.Controllers
                 if (user.Email == vm.Email && user.Password == vm.Password)
                 {
                     IsUser = true;
+                    TempData["userId"] = vm.Id;
+                    HttpContext.Session.SetInt32("usrId", (int)vm.Id);
                 }
             }
             if (IsUser == true)
             {
-                return View("../Role/Index");
+                return RedirectToAction("Index", "Role");
             }
             ViewBag.Error = 1;
             return View("Index");

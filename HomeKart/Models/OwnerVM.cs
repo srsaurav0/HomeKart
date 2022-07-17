@@ -19,5 +19,7 @@ namespace HomeKart.Models
         [Required]
         public string Phone { get; set; }
         public DateTime CreateTime { get; set; } = DateTime.Now;
+
+        public int userId { get; set; }
     }
 }

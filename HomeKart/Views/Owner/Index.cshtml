@@ -1,5 +1,11 @@
 ﻿@model IEnumerable<OwnerVM>
 
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
+
 <div class="container">
     <div class="row pt-4">
         <div class="col-6">
@@ -12,7 +18,6 @@
                 <i class="bi bi-plus-circle"></i> &nbsp; Add New Property
             </a>
         </div>
-
     </div>
 
 
@@ -24,17 +29,33 @@
                 <th style="width:15vw">No. of Rooms</th>
                 <th>Floor No.</th>
                 <th>Rent Amount</th>
+                <th class="text-center">Update</th>
+                <th class="text-center">Delete</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var obj in Model)
             {
                 <tr>
-                    <td class="w-25">@obj.Address</td>
+                    <td>@obj.Address</td>
                     <td>@obj.Area</td>
                     <td style="width:15vw">@obj.No_of_Rooms</td>
                     <td>@obj.Floor_No</td>
                     <td>@obj.Rent_Amount</td>
+                    <td class="text-center">
+                        <a asp-action="UpdateProperty" asp-controller="Owner" asp-route-id="@obj.Id">
+                            <div class="btn btn-group mx-1 btn-secondary">
+                                <i class="bi bi-pencil"></i> Update
+                            </div>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="DeleteProperty" asp-controller="Owner" asp-route-id="@obj.Id">
+                            <div class="btn btn-group mx-1 btn-danger">
+                                <i class="bi bi-trash3-fill"></i> Delete
+                            </div>
+                        </a>
+                    </td>
                 </tr>
             }
         </tbody>
