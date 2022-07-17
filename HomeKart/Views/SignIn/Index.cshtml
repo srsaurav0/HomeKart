@@ -154,7 +154,7 @@
     </nav>
 </header>
 
-@if(ViewBag.Error == 1)
+@if (ViewBag.Error == 1)
 {
     <script>
         alert("Invalid Email or Password!");
@@ -183,3 +183,12 @@
         <p style="color:Black">Already have and account? <a style="color:blue" asp-action="Index" asp-controller="SignIn">Sign in</a> here!</p>
     </div>
 </div>
+
+@if (ViewBag.OnCreate != null)
+{
+    <script type="text/javascript">
+        window.onload = function() {
+            alert("@ViewBag.OnCreate");
+        };
+    </script>
+}

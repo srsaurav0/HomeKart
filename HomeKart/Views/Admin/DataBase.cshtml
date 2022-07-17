@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RegisterVM>
+﻿@model TableVM
 
 <style>
     .hp1 {
@@ -56,7 +56,7 @@
 <div class="container font">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-dark">Admin Logs:</h2>
+            <h2 class="text-dark">User Logs:</h2>
         </div>
     </div>
 
@@ -64,6 +64,7 @@
     <table class="table table-bordered table-striped mt-3" style="width:100%;">
         <thead class="" style="background-color:darkgray">
             <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Password</th>
@@ -73,9 +74,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var obj in Model)
+            @foreach (var obj in Model.UserTab)
             {
                 <tr>
+                    <td>@obj.Id</td>
                     <td>@obj.Name</td>
                     <td>@obj.Email</td>
                     <td>@obj.Password</td>
@@ -94,6 +96,81 @@
                             </div>
                         </a>
                     </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-dark">Property Logs:</h2>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped mt-3" style="width:100%;">
+        <thead class="" style="background-color:darkgray">
+            <tr>
+                <th class="w-25">Address</th>
+                <th>Area</th>
+                <th style="width:15vw">No. of Rooms</th>
+                <th>Floor No.</th>
+                <th>Rent Amount</th>
+                <th>Phone No.</th>
+                <th class="text-center">Update</th>
+                <th class="text-center">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.PropertyTab)
+            {
+                <tr>
+                    <td>@obj.Address</td>
+                    <td>@obj.Area</td>
+                    <td style="width:15vw">@obj.No_of_Rooms</td>
+                    <td>@obj.Floor_No</td>
+                    <td>@obj.Rent_Amount</td>
+                    <td>@obj.Phone</td>
+                    <td class="text-center">
+                        <a asp-action="UpdateProperty" asp-controller="Owner" asp-route-id="@obj.Id">
+                            <div class="btn btn-group mx-1 btn-secondary">
+                                <i class="bi bi-pencil"></i> Update
+                            </div>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="DeleteProperty" asp-controller="Owner" asp-route-id="@obj.Id">
+                            <div class="btn btn-group mx-1 btn-danger">
+                                <i class="bi bi-trash3-fill"></i> Delete
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-dark">Admin Logs:</h2>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped mt-3" style="width:100%;">
+        <thead class="" style="background-color:darkgray">
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.AdminTab)
+            {
+                <tr>
+                    <td>@obj.Id</td>
+                    <td>@obj.Email</td>
+                    <td>@obj.Password</td>
                 </tr>
             }
         </tbody>

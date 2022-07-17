@@ -14,8 +14,13 @@ namespace HomeKart.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int value)
         {
+            if (value == 5)
+            {
+                ViewBag.OnCreate = "Congratulations!" +
+                "Your account was created successfully.";
+            }
             return View();
         }
 
@@ -38,6 +43,7 @@ namespace HomeKart.Controllers
             {
                 return RedirectToAction("Index", "Role");
             }
+
             ViewBag.Error = 1;
             return View("Index");
 

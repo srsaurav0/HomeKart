@@ -26,7 +26,7 @@ namespace HomeKart.Controllers
         {
             _db.Registers.Add(obj);
             _db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "SignIn", new { value = 5 });
         }
     }
 }

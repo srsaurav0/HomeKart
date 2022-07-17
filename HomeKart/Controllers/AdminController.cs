@@ -42,9 +42,14 @@ namespace HomeKart.Controllers
 
         public IActionResult DataBase()
         {
-            IEnumerable<RegisterVM> objUserList = _db.Registers;
+            var tables = new TableVM
+            {
+                AdminTab = _db.Admins.ToList(),
+                UserTab = _db.Registers.ToList(),
+                PropertyTab = _db.Properties.ToList()
+            };
 
-            return View(objUserList);
+            return View(tables);
         }
     }
 }
