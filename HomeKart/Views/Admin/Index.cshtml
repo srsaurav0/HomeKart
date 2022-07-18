@@ -115,20 +115,23 @@
 </head>
 
 <header>
-	<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-sm navbar-toggleable-sm fixed-top navbar-dark bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" style="font-family: 'Rubik Moonrocks', cursive; font-size:40px" asp-area="" asp-controller="Home" asp-action="Index">HomeKart</a>
+			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+				<ul class="navbar-nav flex-grow-1">
+					<li class="nav-item">
+						<a class="nav-link" style="font-size:20px; color:#bfbfbf !important;" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+					</li>
+				</ul>
+			</div>
+			<div class="text-center col-6" style="margin-right:14vw">
+				<a class="navbar-brand text-center" style="font-family: 'Source Serif Pro', serif; font-size:40px" asp-area="" asp-controller="Home" asp-action="Index">HomeKart</a>
+			</div>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
 					aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-				<ul class="navbar-nav flex-grow-1">
-					<li class="nav-item">
-						<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-					</li>
-				</ul>
-			</div>
+
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a class="nav-link btn btn-outline-light" style="margin-right:1vw" asp-controller="SignIn" asp-action="Index">
@@ -145,7 +148,7 @@
 	</nav>
 </header>
 
-<div class="signup-form">
+<div class="signup-form" style="margin-top:11vh !important">
 	<form id="registerForm" asp-action="CheckAdmin" asp-controller="Admin" method="post">
 		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 		<h2>Admin</h2>

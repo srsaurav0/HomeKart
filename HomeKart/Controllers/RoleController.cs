@@ -6,6 +6,7 @@ namespace HomeKart.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Name = HttpContext.Session.GetString("usrName");
             return View();
         }
     }

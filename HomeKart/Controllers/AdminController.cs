@@ -51,5 +51,71 @@ namespace HomeKart.Controllers
 
             return View(tables);
         }
+
+
+        //GET
+        public IActionResult DeleteUser(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var userFromDb = _db.Registers.Find(id);
+
+            if (userFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(userFromDb);
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteUsr(int? id)
+        {
+            var obj = _db.Registers.Find(id);
+            foreach (var objProp in _db.Properties)
+            {
+                if (objProp.userId == id)
+                {
+                    _db.Properties.Remove(objProp);
+                }
+            }
+            _db.Registers.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("DataBase");
+        }
+
+
+        //GET
+        public IActionResult DeleteProperty(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var propertyFromDb = _db.Properties.Find(id);
+
+            if (propertyFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(propertyFromDb);
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int? id)
+        {
+
+            var obj = _db.Properties.Find(id);
+            _db.Properties.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("DataBase");
+        }
     }
 }

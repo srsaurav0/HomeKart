@@ -15,6 +15,7 @@ namespace HomeKart.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Name = HttpContext.Session.GetString("usrName");
             IEnumerable<OwnerVM> objPropertyList = _db.Properties.Where(x => x.userId == (int)HttpContext.Session.GetInt32("usrId"));
             return View(objPropertyList);
         }
@@ -22,6 +23,7 @@ namespace HomeKart.Controllers
         //GET
         public IActionResult AddProperty()
         {
+            ViewBag.Name = HttpContext.Session.GetString("usrName");
             return View();
         }
 
@@ -30,6 +32,7 @@ namespace HomeKart.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddProperty(OwnerVM obj)
         {
+
             if (ModelState.IsValid)
             {
                 obj.userId = (int)HttpContext.Session.GetInt32("usrId");
@@ -43,6 +46,7 @@ namespace HomeKart.Controllers
         //GET
         public IActionResult UpdateProperty(int? id)
         {
+            ViewBag.Name = HttpContext.Session.GetString("usrName");
             if (id == null || id == 0)
             {
                 return NotFound();
@@ -62,6 +66,7 @@ namespace HomeKart.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult UpdateProperty(OwnerVM obj)
         {
+
             if (ModelState.IsValid)
             {
                 obj.userId = (int)HttpContext.Session.GetInt32("usrId");
@@ -75,6 +80,7 @@ namespace HomeKart.Controllers
         //GET
         public IActionResult DeleteProperty(int? id)
         {
+            ViewBag.Name = HttpContext.Session.GetString("usrName");
             if (id == null || id == 0)
             {
                 return NotFound();
@@ -94,6 +100,7 @@ namespace HomeKart.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int? id)
         {
+
             var obj = _db.Properties.Find(id);
             _db.Properties.Remove(obj);
             _db.SaveChanges();

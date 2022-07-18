@@ -15,6 +15,11 @@ namespace HomeKart.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.LogChk = HttpContext.Session.GetString("isLogged");
+            if (ViewBag.LogChk != null)
+            {
+                ViewBag.Name = HttpContext.Session.GetString("usrName");
+            }
             return View();
         }
 

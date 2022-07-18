@@ -1,4 +1,4 @@
-﻿@model OwnerVM
+﻿@model RegisterVM
 
 <style>
     .font {
@@ -29,15 +29,15 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                        <a class="nav-link" style="margin-right:1vw; font-size:18px;" asp-controller="Role" asp-action="Index">
-                            Welcome! @ViewBag.Name
-                        </a>
-                    </li>
-                    <li class="nav-item hovw">
-                        <a class="nav-link btn btn-outline-light" asp-controller="SignIn" asp-action="SignOut">
-                            Sign out
-                        </a>
-                    </li>
+                    <a class="nav-link" style="margin-right:1vw; font-size:18px;">
+                        Welcome! Admin
+                    </a>
+                </li>
+                <li class="nav-item hovw">
+                    <a class="nav-link btn btn-outline-light" asp-controller="Home" asp-action="Index">
+                        Sign out
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -46,36 +46,27 @@
 <div class="container col-12 mt-5 d-flex font mb-3" style="margin-top:15vh !important">
     <div class="col-6 ">
         <div class="col-10 p-5" style="border-radius:25px; background-color:#F4F4F4">
-            <form method="post" asp-action="Delete">
+            <form method="post" asp-action="DeleteUsr">
                 <div class="">
-                    <h2>Delete Property:</h2>
+                    <h2>Delete User:</h2>
                 </div>
                 <input asp-for="Id" hidden />
                 <div class="form-group mt-3">
-                    <label asp-for="Address" class="m-2"></label>
-                    <input asp-for="Address" disabled class="form-control">
+                    <label asp-for="Id" class="m-2"></label>
+                    <input asp-for="Id" disabled class="form-control">
                 </div>
                 <div class="form-group mt-3">
-                    <label asp-for="Area" class="m-2"></label>
-                    <input asp-for="Area" disabled class="form-control">
+                    <label asp-for="Name" class="m-2"></label>
+                    <input asp-for="Name" disabled class="form-control">
                 </div>
                 <div class="form-group mt-3">
-                    <label asp-for="No_of_Rooms" class="m-2">Number of Rooms</label>
-                    <input asp-for="No_of_Rooms" disabled class="form-control">
+                    <label asp-for="Email" class="m-2"></label>
+                    <input asp-for="Email" disabled class="form-control">
                 </div>
                 <div class="form-group mt-3">
-                    <label asp-for="Floor_No" class="m-2">Floor no</label>
-                    <input asp-for="Floor_No" disabled class="form-control">
+                    <label asp-for="DateTimeCreater" class="m-2"></label>
+                    <input asp-for="DateTimeCreater" disabled class="form-control">
                 </div>
-                <div class="form-group mt-3">
-                    <label asp-for="Rent_Amount" class="m-2">Rent amount</label>
-                    <input asp-for="Rent_Amount" disabled class="form-control">
-                </div>
-                <div class="form-group mt-3">
-                    <label asp-for="Phone" class="m-2">Phone</label>
-                    <input asp-for="Phone" disabled class="form-control">
-                </div>
-                
 
                 <div class="form-group mt-5 text-center">
                     <button type="submit" class="btn btn-danger col-5">Delete</button>

@@ -4,9 +4,47 @@
     .font {
         font-family: 'Playfair Display', serif;
     }
+
+    .hovw a:hover {
+        color: black !important;
+    }
 </style>
 
-<div class="container col-12 mt-5 d-flex font mb-3">
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm fixed-top navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size:20px; color:#bfbfbf !important;" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="text-center col-6" style="margin-right:7vw">
+                <a class="navbar-brand text-center" style="font-family: 'Source Serif Pro', serif; font-size:40px" asp-area="" asp-controller="Home" asp-action="Index">HomeKart</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-right:1vw; font-size:18px;" asp-controller="Role" asp-action="Index">
+                        Welcome! @ViewBag.Name
+                    </a>
+                </li>
+                <li class="nav-item hovw">
+                    <a class="nav-link btn btn-outline-light" asp-controller="SignIn" asp-action="SignOut">
+                        Sign out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container col-12 mt-5 d-flex font mb-3" style="margin-top:15vh !important">
     <div class="col-6 ">
         <div class="col-10 p-5" style="border-radius:25px; background-color:#F0F0F0">
             <form method="post" asp-action="UpdateProperty">
@@ -44,13 +82,13 @@
                     <input asp-for="Phone" type="text" class="form-control" id="phone" placeholder="Phone No.">
                     <span asp-validation-for="Phone" class="text-danger"></span>
                 </div>
-                
-                   @*Html.Hidden("userId",(int)TempData["userId"])*@
+
+                @*Html.Hidden("userId",(int)TempData["userId"])*@
 
                 <div class="form-group mt-5 text-center">
                     <button type="submit" class="btn btn-primary col-5">Update</button>
                 </div>
-                
+
             </form>
         </div>
     </div>

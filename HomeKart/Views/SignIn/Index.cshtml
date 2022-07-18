@@ -118,26 +118,33 @@
                 }
 
         .font {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Source Serif Pro', serif;
+        }
+
+        .navbar-nav a:hover {
+            color: black !important;
         }
     </style>
 </head>
 
 <header>
-    <nav class="navbar font navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm fixed-top navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" style="font-family: 'Rubik Moonrocks', cursive; font-size:40px" asp-area="" asp-controller="Home" asp-action="Index">HomeKart</a>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size:20px; color:#bfbfbf !important;" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="text-center col-6" style="margin-right:13vw">
+                <a class="navbar-brand text-center" style="font-family: 'Source Serif Pro', serif; font-size:40px" asp-area="" asp-controller="Home" asp-action="Index">HomeKart</a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                </ul>
-            </div>
+
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link btn btn-outline-light" style="margin-right:1vw" asp-controller="SignIn" asp-action="Index">
@@ -161,28 +168,41 @@
     </script>
 }
 
-<div class="signup-form">
-    <form asp-action="CheckUser" asp-controller="SignIn" id="registerForm" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <h2>Sign In</h2>
-        <div class="form-group">
-            <label asp-for="Email"></label>
-            <input asp-for="Email" class="form-control" aria-required="true" />
-            <span asp-validation-for="Email" class="text-danger"></span>
+
+<div class="container-fluid col-12 mt-3 d-flex" style="margin-top:10vh !important">
+    <div class="col-6 " >
+        <div class="signup-form col-9" style="margin-top:10vh;">
+            <form asp-action="CheckUser" asp-controller="SignIn" id="registerForm" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <h2>Sign In</h2>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center mt-5">
+                    <button id="signInBtn" type="submit" class="btn btn-dark btn-lg btn-block">Sign In</button>
+                </div>
+            </form>
+            <div class="text-center mt-4">
+                <p style="color:Black">Already have and account? <a style="color:blue" asp-action="Index" asp-controller="SignIn">Sign in</a> here!</p>
+            </div>
         </div>
-        <div class="form-group">
-            <label asp-for="Password"></label>
-            <input asp-for="Password" class="form-control" aria-required="true" />
-            <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <div class="col-10" >
+            <img style="height:100%;width:100%;" src="~/Images/SignIn.jpg" />
         </div>
-        <div class="form-group text-center">
-            <button id="signInBtn" type="submit" class="btn btn-dark btn-lg btn-block">Sign In</button>
-        </div>
-    </form>
-    <div class="text-center mt-4">
-        <p style="color:Black">Already have and account? <a style="color:blue" asp-action="Index" asp-controller="SignIn">Sign in</a> here!</p>
     </div>
 </div>
+
+
+
 
 @if (ViewBag.OnCreate != null)
 {
