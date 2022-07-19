@@ -1,12 +1,12 @@
 ﻿@model RegisterVM
 
 <style>
-    .font {
-        font-family: 'Playfair Display', serif;
-    }
     .hovw a:hover {
             color: black !important;
         }
+    a {
+        text-decoration: none;
+    }
 </style>
 
 <header>
@@ -29,12 +29,12 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" style="margin-right:1vw; font-size:18px;">
+                    <a asp-controller="Admin" asp-action="DataBase" class="nav-link" style="margin-right:1vw; font-size:18px;">
                         Welcome! Admin
                     </a>
                 </li>
                 <li class="nav-item hovw">
-                    <a class="nav-link btn btn-outline-light" asp-controller="Home" asp-action="Index">
+                    <a class="nav-link btn btn-outline-light" asp-controller="Admin" asp-action="SignOutAdmin">
                         Sign out
                     </a>
                 </li>
@@ -43,7 +43,7 @@
     </nav>
 </header>
 
-<div class="container col-12 mt-5 d-flex font mb-3" style="margin-top:15vh !important">
+<div class="container col-12 mt-5 d-flex font mb-3" style="margin-top:15vh !important; margin-bottom:65vh !important;">
     <div class="col-6 ">
         <div class="col-10 p-5" style="border-radius:25px; background-color:#F4F4F4">
             <form method="post" asp-action="DeleteUsr">
@@ -76,7 +76,7 @@
         </div>
     </div>
     <div class="col-6">
-        <img style="width:45vw; margin-top:15vh" src="~/Images/Image 3.jpg" />
+        <img style="width:45vw; margin-top:15vh" src="~/Images/Delete user.webp" />
     </div>
 </div>
 

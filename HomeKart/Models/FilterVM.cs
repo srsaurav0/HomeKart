@@ -5,5 +5,6 @@
         public IEnumerable<OwnerVM> PropertyTab { get; set; }
         public int Upper { get; set; }
         public int Lower { get; set; }
+        public string City { get; set; }
     }
 }

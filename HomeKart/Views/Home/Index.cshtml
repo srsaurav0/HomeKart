@@ -34,7 +34,6 @@
 
     .scrolling-active {
         background-color: #FFFFFF !important;
-        box-shadow: 0 3px 1rem rgba(0,0,0,.1) !important;
         height: 7vh !important;
     }
 
@@ -42,21 +41,21 @@
             color: #000000 !important;
         }
 
-    .navbar-nav a:hover {
-        color: black !important;
-    }
+    .hovw a:hover {
+            color: black !important;
+        }
 
 </style>
 
 @if (ViewBag.LogChk == "Yes")
 {
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm fixed-top navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-sm font navbar-toggleable-sm fixed-top navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" style="font-size:20px; color:#bfbfbf !important;" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" style="font-size:20px; " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -75,7 +74,7 @@
                         </a>
                     </li>
                     <li class="nav-item hovw">
-                        <a class="nav-link btn btn-outline-light" asp-controller="SignIn" asp-action="SignOut">
+                        <a class="nav-link btn btn-outline-light hovw" asp-controller="SignIn" asp-action="SignOut">
                             Sign out
                         </a>
                     </li>
@@ -87,7 +86,7 @@
 else
 {
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm fixed-top navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm font navbar-toggleable-sm fixed-top navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
@@ -105,12 +104,12 @@ else
             </button>
 
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item hovw">
                     <a class="nav-link btn btn-outline-light" style="margin-right:1vw" asp-controller="SignIn" asp-action="Index">
                         Sign In
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item hovw">
                     <a class="nav-link btn btn-outline-light" asp-controller="Register" asp-action="Index">
                         Register
                     </a>
@@ -158,6 +157,7 @@ else
         </div>
     </div>
 </div>
+
 <div class="container d-flex col-12 font">
     <div class="col-6 d-flex justify-content-center align-items-center" style="background:#f2f2f2">
         <div style="">
@@ -175,9 +175,9 @@ else
     <h1 style="color:#E6E6E6;" class="font">What do we offer?</h1>
 </div>
 
-<div class="container col-12 mt-5 d-flex">
+<div class="font container col-12 mt-5 d-flex">
     <img class="col-6 animate__animated animate__backInLeft" src="~/Images/Image 1.jpg" />
-    <div class="col-6 font animate__animated animate__backInRight" style="padding-left:100px; font-size:30px; padding-top:70px;">
+    <div class="col-6 animate__animated animate__backInRight" style="padding-left:100px; font-size:30px; padding-top:70px;">
         <ul>
             <li>Best apartments </li>
             <li>Reasonable rate</li>
@@ -193,7 +193,7 @@ else
     <h1 style="color:#E6E6E6;" class="font">Why us?</h1>
 </div>
 
-<div class="container col-12 mt-5 d-flex mb-5">
+<div class="container col-12 mt-5 d-flex" style="margin-bottom:65vh">
     <div class="col-6 font animate__animated animate__backInLeft" style="padding-left:100px; font-size:30px; padding-top:70px;">
         <ul>
             <li>Best collection of team </li>
@@ -213,3 +213,12 @@ else
         nav.classList.toggle('scrolling-active', window.scrollY > 200);
     })
 </script>
+
+@if (ViewBag.LogOut != null)
+{
+    <script type="text/javascript">
+        window.onload = function() {
+            alert("@ViewBag.LogOut");
+        };
+    </script>
+}

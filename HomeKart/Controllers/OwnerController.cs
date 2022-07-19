@@ -15,6 +15,14 @@ namespace HomeKart.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("isLogged") == null)
+            {
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("LogOut", "Out", options);
+                return RedirectToAction("Index", "Home");
+            }
+            ViewBag.Add = Request.Cookies["Add"];
             ViewBag.Name = HttpContext.Session.GetString("usrName");
             IEnumerable<OwnerVM> objPropertyList = _db.Properties.Where(x => x.userId == (int)HttpContext.Session.GetInt32("usrId"));
             return View(objPropertyList);
@@ -23,6 +31,13 @@ namespace HomeKart.Controllers
         //GET
         public IActionResult AddProperty()
         {
+            if (HttpContext.Session.GetString("isLogged") == null)
+            {
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("LogOut", "Out", options);
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.Name = HttpContext.Session.GetString("usrName");
             return View();
         }
@@ -46,6 +61,15 @@ namespace HomeKart.Controllers
         //GET
         public IActionResult UpdateProperty(int? id)
         {
+            if (HttpContext.Session.GetString("isLogged") == null)
+            {
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("LogOut", "Out", options);
+
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewBag.Name = HttpContext.Session.GetString("usrName");
             if (id == null || id == 0)
             {
@@ -80,6 +104,15 @@ namespace HomeKart.Controllers
         //GET
         public IActionResult DeleteProperty(int? id)
         {
+            if (HttpContext.Session.GetString("isLogged") == null)
+            {
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("LogOut", "Out", options);
+
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewBag.Name = HttpContext.Session.GetString("usrName");
             if (id == null || id == 0)
             {
@@ -102,6 +135,7 @@ namespace HomeKart.Controllers
         {
 
             var obj = _db.Properties.Find(id);
+
             _db.Properties.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");

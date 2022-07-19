@@ -43,7 +43,7 @@
     </nav>
 </header>
 
-<div class="container" style="margin-top:10vh !important">
+<div class="container" style="margin-top:10vh !important; margin-bottom:80vh;">
     <div class="row pt-4">
         <div class="col-6">
             <h2 class="text-dark">Property List:</h2>
@@ -97,5 +97,14 @@
             }
         </tbody>
     </table>
-
 </div>
+
+
+@if(ViewBag.Add != null)
+{
+    <script type="text/javascript">
+        window.onload = function() {
+            alert("A property from @ViewBag.Add was deleted!");
+        };
+    </script>
+}

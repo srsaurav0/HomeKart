@@ -34,14 +34,28 @@ namespace HomeKart.Controllers
             }
             if (IsAdmin == true)
             {
+                HttpContext.Session.SetString("admLogged", "Yes");
                 return RedirectToAction("DataBase");
             }
             ViewBag.Error = 2;
             return View("Index", "Admin");
         }
 
+        public IActionResult SignOutAdmin()
+        {
+            HttpContext.Session.Remove("admLogged");
+            return RedirectToAction("Index", "Home");
+        }
+
         public IActionResult DataBase()
         {
+            if (HttpContext.Session.GetString("admLogged") == null)
+            {
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("LogOut", "Out", options);
+                return RedirectToAction("Index", "Home");
+            }
             var tables = new TableVM
             {
                 AdminTab = _db.Admins.ToList(),

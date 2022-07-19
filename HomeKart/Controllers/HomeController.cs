@@ -16,9 +16,15 @@ namespace HomeKart.Controllers
         public IActionResult Index()
         {
             ViewBag.LogChk = HttpContext.Session.GetString("isLogged");
+            ViewBag.LogOut = null;
             if (ViewBag.LogChk != null)
             {
                 ViewBag.Name = HttpContext.Session.GetString("usrName");
+                return View();
+            }
+            if (Request.Cookies["LogOut"] != null)
+            {
+                ViewBag.LogOut = "Please log in to continue";
             }
             return View();
         }

@@ -124,6 +124,10 @@
         .navbar-nav a:hover {
             color: black !important;
         }
+
+        a {
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -169,8 +173,8 @@
 }
 
 
-<div class="container-fluid col-12 mt-3 d-flex" style="margin-top:10vh !important">
-    <div class="col-6 " >
+<div class="container-fluid col-12 mt-3 d-flex" style="margin-top:10vh !important;margin-bottom:55vh">
+    <div class="col-6 ">
         <div class="signup-form col-9" style="margin-top:10vh;">
             <form asp-action="CheckUser" asp-controller="SignIn" id="registerForm" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -190,12 +194,12 @@
                 </div>
             </form>
             <div class="text-center mt-4">
-                <p style="color:Black">Already have and account? <a style="color:blue" asp-action="Index" asp-controller="SignIn">Sign in</a> here!</p>
+                <p style="color:Black">Don't have an account? <a style="color:blue" asp-action="Index" asp-controller="Register">Sign up</a> here!</p>
             </div>
         </div>
     </div>
     <div class="col-6">
-        <div class="col-10" >
+        <div class="col-10">
             <img style="height:100%;width:100%;" src="~/Images/SignIn.jpg" />
         </div>
     </div>

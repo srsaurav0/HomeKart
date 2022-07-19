@@ -1,12 +1,17 @@
 ﻿@model OwnerVM
 
 <style>
-    .font {
-        font-family: 'Playfair Display', serif;
-    }
     .hovw a:hover {
-            color: black !important;
-        }
+        color: black !important;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .font {
+        font-family: 'Source Serif Pro', serif;
+    }
 </style>
 
 <header>
@@ -29,21 +34,21 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                        <a class="nav-link" style="margin-right:1vw; font-size:18px;" asp-controller="Role" asp-action="Index">
-                            Welcome! @ViewBag.Name
-                        </a>
-                    </li>
-                    <li class="nav-item hovw">
-                        <a class="nav-link btn btn-outline-light" asp-controller="SignIn" asp-action="SignOut">
-                            Sign out
-                        </a>
-                    </li>
+                    <a class="nav-link" style="margin-right:1vw; font-size:18px;" asp-controller="Role" asp-action="Index">
+                        Welcome! @ViewBag.Name
+                    </a>
+                </li>
+                <li class="nav-item hovw">
+                    <a class="nav-link btn btn-outline-light" asp-controller="SignIn" asp-action="SignOut">
+                        Sign out
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
 </header>
 
-<div class="container col-12 mt-5 d-flex font mb-3" style="margin-top:15vh !important">
+<div class="container col-12 mt-5 d-flex mb-3" style="margin-top:15vh !important; margin-bottom:65vh !important;">
     <div class="col-6 ">
         <div class="col-10 p-5" style="border-radius:25px; background-color:#F4F4F4">
             <form method="post" asp-action="Delete">
@@ -75,17 +80,17 @@
                     <label asp-for="Phone" class="m-2">Phone</label>
                     <input asp-for="Phone" disabled class="form-control">
                 </div>
-                
+
 
                 <div class="form-group mt-5 text-center">
                     <button type="submit" class="btn btn-danger col-5">Delete</button>
                 </div>
-                
+
             </form>
         </div>
     </div>
     <div class="col-6">
-        <img style="width:45vw; margin-top:15vh" src="~/Images/Image 3.jpg" />
+        <img style="width:100%; margin-top:15vh" src="~/Images/Delete.jpeg" />
     </div>
 </div>
 
