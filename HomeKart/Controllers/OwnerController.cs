@@ -25,6 +25,22 @@ namespace HomeKart.Controllers
             ViewBag.Add = Request.Cookies["Add"];
             ViewBag.Name = HttpContext.Session.GetString("usrName");
             IEnumerable<OwnerVM> objPropertyList = _db.Properties.Where(x => x.userId == (int)HttpContext.Session.GetInt32("usrId"));
+
+            if (Request.Cookies["AddProp"] != null)
+            {
+                ViewBag.AddProp = "A property was added successfully!";
+            }
+
+            if (Request.Cookies["UpdateProp"] != null)
+            {
+                ViewBag.AddProp = "A property was updated successfully!";
+            }
+
+            if (Request.Cookies["DeleteProp"] != null)
+            {
+                ViewBag.AddProp = "A property was deleted successfully!";
+            }
+
             return View(objPropertyList);
         }
 
@@ -53,6 +69,11 @@ namespace HomeKart.Controllers
                 obj.userId = (int)HttpContext.Session.GetInt32("usrId");
                 _db.Properties.Add(obj);
                 _db.SaveChanges();
+
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("AddProp", "Added", options);
+
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -96,6 +117,11 @@ namespace HomeKart.Controllers
                 obj.userId = (int)HttpContext.Session.GetInt32("usrId");
                 _db.Properties.Update(obj);
                 _db.SaveChanges();
+
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("UpdateProp", "Added", options);
+
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -138,6 +164,11 @@ namespace HomeKart.Controllers
 
             _db.Properties.Remove(obj);
             _db.SaveChanges();
+
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddSeconds(5);
+            Response.Cookies.Append("DeleteProp", "Added", options);
+
             return RedirectToAction("Index");
         }
     }

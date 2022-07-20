@@ -179,10 +179,10 @@
     </div>''
 </div>
 
-@if (ViewBag.Error == 2)
+@if (ViewBag.NotAdm != null)
 {
     <script>
-        alert("Invalid Email or Password!");
+        alert("@ViewBag.NotAdm");
     </script>
 }
 

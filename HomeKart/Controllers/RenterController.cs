@@ -83,5 +83,32 @@ namespace HomeKart.Controllers
             }
             return View("Index", "Renter");
         }
+
+        //GET
+        public IActionResult Details(int? id)
+        {
+            if (HttpContext.Session.GetString("isLogged") == null)
+            {
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("LogOut", "Out", options);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            ViewBag.Name = HttpContext.Session.GetString("usrName");
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var propertyFromDb = _db.Properties.Find(id);
+
+            if (propertyFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(propertyFromDb);
+        }
     }
 }

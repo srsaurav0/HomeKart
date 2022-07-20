@@ -91,6 +91,7 @@
                 <th>Floor No.</th>
                 <th>Rent Amount</th>
                 <th>Phone No.</th>
+                <th class="text-center">Details</th>
             </tr>
         </thead>
         <tbody>
@@ -103,6 +104,13 @@
                     <td>@obj.Floor_No</td>
                     <td>@obj.Rent_Amount</td>
                     <td>@obj.Phone</td>
+                    <td class="text-center">
+                        <a asp-action="Details" asp-controller="Renter" asp-route-id="@obj.Id">
+                            <div class="btn btn-group mx-1 btn-secondary">
+                                <i class="bi bi-pencil"></i> Details
+                            </div>
+                        </a>
+                    </td>
                 </tr>
             }
         </tbody>

@@ -16,6 +16,10 @@ namespace HomeKart.Controllers
 
         public IActionResult Index()
         {
+            if (Request.Cookies["NotAdm"] != null)
+            {
+                ViewBag.NotAdm = "Invalid username or password!";
+            }
             return View();
         }
 
@@ -37,7 +41,11 @@ namespace HomeKart.Controllers
                 HttpContext.Session.SetString("admLogged", "Yes");
                 return RedirectToAction("DataBase");
             }
-            ViewBag.Error = 2;
+
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddSeconds(5);
+            Response.Cookies.Append("NotAdm", "Yes", options);
+
             return View("Index", "Admin");
         }
 
@@ -62,6 +70,16 @@ namespace HomeKart.Controllers
                 UserTab = _db.Registers.ToList(),
                 PropertyTab = _db.Properties.ToList()
             };
+
+            if (Request.Cookies["DeleteUsr"] != null)
+            {
+                ViewBag.AddProp = "A user and all his/her properties were deleted successfully!";
+            }
+
+            if (Request.Cookies["DeletePr"] != null)
+            {
+                ViewBag.AddProp = "A property was deleted successfully!";
+            }
 
             return View(tables);
         }
@@ -99,6 +117,11 @@ namespace HomeKart.Controllers
             }
             _db.Registers.Remove(obj);
             _db.SaveChanges();
+
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddSeconds(5);
+            Response.Cookies.Append("DeleteUsr", "Added", options);
+
             return RedirectToAction("DataBase");
         }
 
@@ -129,6 +152,11 @@ namespace HomeKart.Controllers
             var obj = _db.Properties.Find(id);
             _db.Properties.Remove(obj);
             _db.SaveChanges();
+
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddSeconds(5);
+            Response.Cookies.Append("DeletePr", "Added", options);
+
             return RedirectToAction("DataBase");
         }
     }

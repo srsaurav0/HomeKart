@@ -108,3 +108,12 @@
         };
     </script>
 }
+
+@if(ViewBag.AddProp != null)
+{
+    <script type="text/javascript">
+        window.onload = function() {
+            alert("@ViewBag.AddProp");
+        };
+    </script>
+}
