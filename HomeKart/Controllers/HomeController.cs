@@ -31,6 +31,23 @@ namespace HomeKart.Controllers
 
         public IActionResult Privacy()
         {
+            ViewBag.LogChk = HttpContext.Session.GetString("isLogged");
+            if (ViewBag.LogChk != null)
+            {
+                ViewBag.Name = HttpContext.Session.GetString("usrName");
+                return View();
+            }
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            ViewBag.LogChk = HttpContext.Session.GetString("isLogged");
+            if (ViewBag.LogChk != null)
+            {
+                ViewBag.Name = HttpContext.Session.GetString("usrName");
+                return View();
+            }
             return View();
         }
 
